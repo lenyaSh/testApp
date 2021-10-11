@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.View.CameraListPage"
+             Style="{StaticResource Key=backgroundStylePage}">
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="tableContent">
+            <Setter Property="TextColor" Value="#f0d1ec"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Список камер" Style="{StaticResource Key=headerStylePage}" />
+
+            <ListView x:Name="booksList" ItemsSource="{Binding Cameras}"
+              SelectedItem="{Binding SelectedCamera, Mode=TwoWay}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+
+                                    <!--Шапка таблицы-->
+                                    <Label Text="Имя камеры" TextColor="#f0d1ec" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row= "0" Grid.Column="0" />
+                                    <Label Text="Звук" TextColor="#f0d1ec" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row= "0" Grid.Column="1"/>
+                                    <Label Text="Имя сервера" TextColor="#f0d1ec" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Row= "0" Grid.Column="2"/>
+
+                                    <!--Строки-->
+                                    <Label Text="{Binding Name}" Style="{StaticResource Key = tableContent }" Padding="15, 0, 0, 0" Grid.Row="1" Grid.Column="0"/>
+                                    <CheckBox IsEnabled="False" IsChecked="{Binding IsSoundOn}"  VerticalOptions="Center" Grid.Row="1" Grid.Column="1"/>
+                                    <Label Text="{Binding ServerName}" Style="{StaticResource Key = tableContent}" Grid.Row="1" Grid.Column="2"/>
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

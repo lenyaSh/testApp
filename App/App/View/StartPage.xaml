@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.View.StartPage"
+             NavigationPage.HasNavigationBar="False"
+             Style="{StaticResource Key=backgroundStylePage}"
+             >
+
+    <ContentPage.Content>
+        <StackLayout Margin="15">
+            <Label Text="Подключение" Style="{StaticResource Key=headerStylePage}"/>
+            <Label Text="Для получения данных о камерах, необходимо подключиться к серверу" FontSize="16" TextColor="#f0d1ec" Padding="15" WidthRequest="400" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Center" />
+
+            <Entry Placeholder="Введите название сервера..." x:Name="ServerName" TextChanged="Entry_TextChanged"/>
+            
+            <ActivityIndicator IsRunning="True" Color="MediumPurple" IsVisible="{Binding IsBusy}" x:Name="indicator" VerticalOptions="Center" HorizontalOptions="Center"/>
+            
+            <Button Text="Подключиться" x:Name="ConnectButton" BackgroundColor="#c357b9" TextColor="#f0d1ec" CornerRadius="15" BorderWidth="0" WidthRequest="100" HeightRequest="40" Clicked="ConnectToServer" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

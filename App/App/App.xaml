@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="backgroundStylePage" TargetType="ContentPage">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#944671"
+                          Offset="0.1" />
+                            <GradientStop Color="#a23fa4"
+                          Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="headerStylePage" TargetType="Label">
+                <Setter Property="TextColor" Value="#ede5f0"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Margin" Value="15" />
+                <Setter Property="CharacterSpacing" Value="1.5" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

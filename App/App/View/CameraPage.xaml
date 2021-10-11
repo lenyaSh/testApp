@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.View.CameraPage"
+             Style="{StaticResource Key=backgroundStylePage}">
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="descriptionCamera">
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Padding" Value="30, 0, 0, 0"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout x:Name="cameraStack">
+            <Label Text="Камера" Style="{StaticResource Key=headerStylePage}"/>
+
+            <Label Text="Имя камеры" Padding="15, 0, 0, 0" TextColor="#f0d1ec"/>
+            <Label Text="{Binding Name}" Style="{StaticResource Key=descriptionCamera}" TextColor="#f0d1ec"/>
+            <Label Text="Включен ли звук" Padding="15, 0, 0, 0" TextColor="#f0d1ec"/>
+            <CheckBox IsChecked="{Binding IsSoundOn}" IsEnabled="False" HorizontalOptions="Center"/>
+            <Label Text="Имя сервера" Padding="15, 0, 0, 0" TextColor="#f0d1ec"/>
+            <Label Text="{Binding ServerName}"  Style="{StaticResource Key=descriptionCamera}" TextColor="#f0d1ec"/>
+
+            <Label Text="Кадр с камеры сохранен в галерее" Style="{StaticResource Key=descriptionCamera}" TextColor="#f0d1ec" IsVisible="{Binding imageSaved}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
